@@ -1,0 +1,17 @@
+{
+    "Name": "名前",
+    "Email": "メールアドレス",
+    "Password": "パスワード",
+    "Confirm Password": "パスワード確認",
+    "Remember me": "ログイン情報を保存する",
+    "Forgot your password?": "パスワードを忘れた方はこちら",
+    "Log in": "ログイン",
+    "Already registered?": "既に登録済みですか？",
+    "Register": "登録",
+    "Whoops! Something went wrong.": "エラーが発生しました。",
+    "Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.": "パスワードを忘れですか？お客様のEメールアドレスをお知らせいただければ、新しいEメールアドレスを選択できるパスワードリセットリンクをEメールでお送りします。",
+    "Email Password Reset Link": "パスワードリセットリンクをする",
+    "failed": "これらの資格情報は当社の記録と一致しません。",
+    "password": "指定されたパスワードが正しくありません。",
+    "throttle": "ログイン試行回数が多すぎます。 :秒単位で再試行します。"
+}
