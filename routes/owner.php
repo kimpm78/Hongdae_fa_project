@@ -29,60 +29,50 @@ Route::get('/dashboard', function () {
     return view('owner.dashboard');
 })->middleware(['auth:owners'])->name('dashboard');
 
+Route::get('/login', [AuthenticatedSessionController::class, 'create'])
+    ->middleware('guest')
+    ->name('login');
+Route::post('/login', [AuthenticatedSessionController::class, 'store'])
+    ->middleware('guest');
 
-Route::middleware('guest')->group(function () {
-    Route::get('register', [RegisteredUserController::class, 'create'])
-        ->middleware('auth:owners')
-        ->name('register');
+Route::get('/register', [RegisteredUserController::class, 'create'])
+    ->middleware('guest')
+    ->name('register');
+Route::post('/register', [RegisteredUserController::class, 'store'])
+    ->middleware('guest');
 
-    Route::post('register', [RegisteredUserController::class, 'store'])
-        ->middleware('auth:owners');
+Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
+    ->middleware('guest')
+    ->name('password.email');
+Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
+    ->middleware('guest')
+    ->name('password.request');
+Route::get('/reset-password/{token}', [NewPasswordController::class, 'create'])
+    ->middleware('guest')
+    ->name('password.reset');
+Route::post('/reset-password', [NewPasswordController::class, 'store'])
+    ->middleware('guest')
+    ->name('password.update');
 
-    Route::get('login', [AuthenticatedSessionController::class, 'create'])
-        ->middleware('auth:owners')
-        ->name('login');
+Route::get('/verify-email', [EmailVerificationPromptController::class, '__invoke'])
+    ->middleware('auth:owners')
+    ->name('verification.notice');
 
-    Route::post('login', [AuthenticatedSessionController::class, 'store'])
-        ->middleware('auth:owners');
+Route::get('/verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
+    ->middleware(['auth:owners', 'signed', 'throttle:6,1'])
+    ->name('verification.verify');
 
-    Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
-        ->middleware('auth:owners')
-        ->name('password.request');
+Route::post('/email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
+    ->middleware(['auth:owners', 'throttle:6,1'])
+    ->name('verification.send');
 
-    Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
-        ->middleware('auth:owners')
-        ->name('password.email');
+Route::get('/confirm-password', [ConfirmablePasswordController::class, 'show'])
+    ->middleware('auth:owners')
+    ->name('password.confirm');
 
-    Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])
-        ->middleware('auth:owners')
-        ->name('password.reset');
+Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store'])
+    ->middleware('auth:owners');
 
-    Route::post('reset-password', [NewPasswordController::class, 'store'])
-        ->middleware('auth:owners')
-        ->name('password.update');
-});
-
-Route::middleware('auth')->group(function () {
-    Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
-        ->middleware('auth:owners')
-        ->name('verification.notice');
-
-    Route::get('verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
-        ->middleware(['auth:owners', 'signed', 'throttle:6,1'])
-        ->name('verification.verify');
-
-    Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
-        ->middleware(['auth:owners', 'throttle:6,1'])
-        ->name('verification.send');
-
-    Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
-        ->middleware('auth:owners')
-        ->name('password.confirm');
-
-    Route::post('confirm-password', [ConfirmablePasswordController::class, 'store'])
-        ->middleware('auth:owners');
-
-    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
-        ->middleware('auth:owners')
-        ->name('logout');
-});
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+    ->middleware('auth:owners')
+    ->name('logout');

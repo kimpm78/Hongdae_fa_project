@@ -13,5 +13,6 @@
     "Email Password Reset Link": "パスワードリセットリンクをする",
     "failed": "これらの資格情報は当社の記録と一致しません。",
     "password": "指定されたパスワードが正しくありません。",
-    "throttle": "ログイン試行回数が多すぎます。 :秒単位で再試行します。"
+    "throttle": "ログイン試行回数が多すぎます。 :秒単位で再試行します。",
+    "These credentials do not match our records.":"これらの資格情報は当社の記録と一致しません。"
 }
