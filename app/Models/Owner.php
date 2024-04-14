@@ -12,7 +12,6 @@ use App\Models\Image;
 class Owner extends Authenticatable
 {
     use HasFactory, SoftDeletes;
-
     /**
      * The attributes that are mass assignable.
      *
