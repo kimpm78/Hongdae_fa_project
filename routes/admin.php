@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\Auth\NewPasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
+use App\Http\Controllers\Admin\OwnersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,8 +22,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.welcome');
+// Route::get('/', function () {
+//     return view('admin.welcome');
+// });
+
+Route::resource('owners', OwnersController::class)
+    ->middleware('auth:admin')->except(['show']);
+
+Route::prefix('expired-owners')->middleware('auth:admin')->group(function () {
+    Route::get('index', [OwnersController::class, 'expiredOwnerIndex'])->name('expired-owners.index');
+    Route::post('destroy/{owner}', [OwnersController::class, 'expiredOwnerDestroy'])->name('expired-owners.destroy');
 });
 
 Route::get('/dashboard', function () {
@@ -30,59 +39,55 @@ Route::get('/dashboard', function () {
 })->middleware(['auth:admin'])->name('dashboard');
 
 
-Route::middleware('guest')->group(function () {
-    Route::get('register', [RegisteredUserController::class, 'create'])
-        ->middleware('auth:admin')
-        ->name('register');
+Route::get('/register', [RegisteredUserController::class, 'create'])
+    ->middleware('guest')
+    ->name('register');
 
-    Route::post('register', [RegisteredUserController::class, 'store'])
-        ->middleware('auth:admin');
+Route::post('/register', [RegisteredUserController::class, 'store'])
+    ->middleware('guest');
 
-    Route::get('login', [AuthenticatedSessionController::class, 'create'])
-        ->middleware('auth:admin')
-        ->name('login');
+Route::get('/login', [AuthenticatedSessionController::class, 'create'])
+    ->middleware('guest')
+    ->name('login');
 
-    Route::post('login', [AuthenticatedSessionController::class, 'store'])
-        ->middleware('auth:admin');
+Route::post('/login', [AuthenticatedSessionController::class, 'store'])
+    ->middleware('guest');
 
-    Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
-        ->middleware('auth:admin')
-        ->name('password.request');
+Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
+    ->middleware('guest')
+    ->name('password.request');
 
-    Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
-        ->middleware('auth:admin')
-        ->name('password.email');
+Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
+    ->middleware('guest')
+    ->name('password.email');
 
-    Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])
-        ->middleware('auth:admin')
-        ->name('password.reset');
+Route::get('/reset-password/{token}', [NewPasswordController::class, 'create'])
+    ->middleware('guest')
+    ->name('password.reset');
 
-    Route::post('reset-password', [NewPasswordController::class, 'store'])
-        ->middleware('auth:admin')
-        ->name('password.update');
-});
+Route::post('/reset-password', [NewPasswordController::class, 'store'])
+    ->middleware('guest')
+    ->name('password.update');
 
-Route::middleware('auth')->group(function () {
-    Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
-        ->middleware('auth:admin')
-        ->name('verification.notice');
+Route::get('/verify-email', [EmailVerificationPromptController::class, '__invoke'])
+    ->middleware('auth:admin')
+    ->name('verification.notice');
 
-    Route::get('verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
-        ->middleware(['auth:admin', 'signed', 'throttle:6,1'])
-        ->name('verification.verify');
+Route::get('/verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
+    ->middleware(['auth:admin', 'signed', 'throttle:6,1'])
+    ->name('verification.verify');
 
-    Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
-        ->middleware(['auth:admin', 'throttle:6,1'])
-        ->name('verification.send');
+Route::post('/email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
+    ->middleware(['auth:admin', 'throttle:6,1'])
+    ->name('verification.send');
 
-    Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
-        ->middleware('auth:admin')
-        ->name('password.confirm');
+Route::get('/confirm-password', [ConfirmablePasswordController::class, 'show'])
+    ->middleware('auth:admin')
+    ->name('password.confirm');
 
-    Route::post('confirm-password', [ConfirmablePasswordController::class, 'store'])
-        ->middleware('auth:admin');
+Route::post('/confirm-password', [ConfirmablePasswordController::class, 'store'])
+    ->middleware('auth:admin');
 
-    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
-        ->middleware('auth:admin')
-        ->name('logout');
-});
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+    ->middleware('auth:admin')
+    ->name('logout');

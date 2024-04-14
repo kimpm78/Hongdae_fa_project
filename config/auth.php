@@ -40,17 +40,26 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'user' => [
+
+        'users' => [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'owner' => [
+
+        'owners' => [
             'driver' => 'session',
             'provider' => 'owners',
         ],
+
         'admin' => [
             'driver' => 'session',
             'provider' => 'admin',
+        ],
+
+        'api' => [
+            'driver' => 'token',
+            'provider' => 'users',
+            'hash' => false,
         ],
     ],
 
@@ -110,18 +119,21 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+
         'owners' => [
             'provider' => 'owners',
             'table' => 'owner_password_resets',
             'expire' => 60,
             'throttle' => 60,
         ],
+
         'admin' => [
             'provider' => 'admin',
             'table' => 'admin_password_resets',
             'expire' => 60,
             'throttle' => 60,
         ],
+
     ],
 
     /*

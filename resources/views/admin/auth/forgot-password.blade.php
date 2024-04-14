@@ -6,8 +6,8 @@
             </a>
         </x-slot>
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+        <div class="mb-4 text-sm text-gray-600 my-4 leading-8">
+            パスワードを忘れですか？<br>お客様のメールアドレスをお知らせいただければ、新しいメールアドレスを選択できるパスワードリセットリンクをメールアロですでお送りします。
         </div>
 
         <!-- Session Status -->
@@ -20,15 +20,10 @@
             @csrf
 
             <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
+            <div class="p-2 w-full flex justify-around mt-4 font-bold text-[10px]">
+                <button type="button" onclick="location.href='<?= route('admin.owners.index') ?>'" class="bg-gray-200 border-0 py-2 px-8 focus:outline-none hover:bg-gray-400 rounded text-lg">戻る</button>
                 <x-button>
-                    {{ __('Email Password Reset Link') }}
+                    パスワードリセットする
                 </x-button>
             </div>
         </form>

@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 class LifeCycleTestController extends Controller
 {
-
     //
     public function showServiceProviderTest()
     {
@@ -14,13 +13,16 @@ class LifeCycleTestController extends Controller
         $password = $encrypt->encrypt('password');
 
         $sample = app()->make('serviceProviderTest');
+
         dd($sample, $password, $encrypt->decrypt($password));
     }
+
     public function showServiceContainerTest()
     {
         app()->bind('lifeCycleTest', function () {
-            return 'lifeCycleTest';
+            return 'ライフサイクルテスト';
         });
+
         $test = app()->make('lifeCycleTest');
 
         //サービスコンテナなしのパターン
@@ -54,6 +56,6 @@ class Message
 {
     public function send()
     {
-        echo ("メッセージ表示");
+        echo ('メッセージ表示');
     }
 }
