@@ -13,7 +13,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('owner.dashboard')" :active="request()->routeIs('owner.dashboard')">
-                        {{ __('Dashboard') }}
+                        Dashboard
                     </x-nav-link>
                 </div>
             </div>
@@ -40,7 +40,7 @@
 
                             <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                ログアウト
                             </x-dropdown-link>
                         </form>
                     </x-slot>
