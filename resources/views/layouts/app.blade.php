@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
@@ -19,12 +20,11 @@
 
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100">
-        <!-- Pages Navigation -->
-        @if(auth('admin')->user())
+        @if(request()->is('admin*'))
         @include('layouts.admin-navigation')
-        @elseif(auth('owners')->user())
+        @elseif(request()->is('owner*'))
         @include('layouts.owner-navigation')
-        @elseif(auth('users')->user())
+        @else
         @include('layouts.user-navigation')
         @endif
 

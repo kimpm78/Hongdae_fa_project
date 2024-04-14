@@ -13,7 +13,7 @@ class TestClassBase extends Component
      *
      * @return void
      */
-    public function __construct($classBaseMessage, $defaultMessage = "初期値です")
+    public function __construct($classBaseMessage, $defaultMessage = "初期値です。")
     {
         $this->classBaseMessage = $classBaseMessage;
         $this->defaultMessage = $defaultMessage;
