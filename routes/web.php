@@ -4,6 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ComponentTestController;
 use App\Http\Controllers\LifeCycleTestController;
 
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\RefundController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\TermsController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +29,15 @@ Route::get('/dashboard', function () {
     return view('user.dashboard');
 })->middleware(['auth:users'])->name('dashboard');
 
+Route::get('/company-info', [CompanyController::class, 'info'])->name('company.info');
+
+Route::get('/refund-exchange', [RefundController::class, 'exchange'])->name('refund.exchange');
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+
+Route::get('/terms', [TermsController::class, 'index'])->name('terms');
+
+// Test Page
 Route::get('/component-test1', [ComponentTestController::class, 'showComponent1']);
 
 Route::get('/component-test2', [ComponentTestController::class, 'showComponent2']);
