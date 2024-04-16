@@ -53,7 +53,7 @@ class OwnersController extends Controller
      */
     public function create()
     {
-        return view('admin.owners.create');
+        return response()->view('admin.owners.create');
     }
 
     /**

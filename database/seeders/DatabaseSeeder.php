@@ -19,12 +19,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AdminSeeder::class,
             OwnerSeeder::class,
+            UserSeeder::class,
             ShopSeeder::class,
             ImageSeeder::class,
             CategorySeeder::class,
             // ProductSeeder::class,
             // StockSeeder::class,
-            UserSeeder::class
         ]);
         Product::factory(100)->create();
         Stock::factory(100)->create();

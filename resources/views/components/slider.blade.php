@@ -36,7 +36,7 @@
             <!-- Dots Navigation -->
             <div class="absolute bottom-0 left-0 right-0 flex justify-center space-x-2 p-4">
                 <template x-for="slideIndex in slideCount" :key="slideIndex">
-                    <button @click="activeSlide = slideIndex" class="h-2 w-2 rounded-full" :class="{'bg-orange-500': activeSlide === slideIndex, 'bg-white/50': activeSlide !== slideIndex}"></button>
+                    <button @click="activeSlide = slideIndex" class="h-2 w-2 rounded-full" :class="{ 'bg-orange-500': activeSlide === slideIndex, 'bg-white/50': activeSlide !== slideIndex }"></button>
                 </template>
             </div>
         </div>

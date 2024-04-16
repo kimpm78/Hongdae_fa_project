@@ -4,9 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 
-class OwnerSeeder extends Seeder
+class ImageSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,43 +14,37 @@ class OwnerSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('owners')->insert([
+        DB::table('images')->insert([
             [
-                'name' => 'test1',
-                'email' => 'test1@test.com',
-                'password' => Hash::make('password123'),
-                'created_at' => '2021/01/01 11:11:11'
+                'owner_id' => 1,
+                'filename' => 'sample1.jpg',
+                'title' => null
             ],
             [
-                'name' => 'test2',
-                'email' => 'test2@test.com',
-                'password' => Hash::make('password123'),
-                'created_at' => '2021/01/01 11:11:11'
+                'owner_id' => 1,
+                'filename' => 'sample2.jpg',
+                'title' => null
             ],
             [
-                'name' => 'test3',
-                'email' => 'test3@test.com',
-                'password' => Hash::make('password123'),
-                'created_at' => '2021/01/01 11:11:11'
+                'owner_id' => 1,
+                'filename' => 'sample3.jpg',
+                'title' => null
             ],
             [
-                'name' => 'test4',
-                'email' => 'test4@test.com',
-                'password' => Hash::make('password123'),
-                'created_at' => '2021/01/01 11:11:11'
+                'owner_id' => 1,
+                'filename' => 'sample4.jpg',
+                'title' => null
             ],
             [
-                'name' => 'test5',
-                'email' => 'test5@test.com',
-                'password' => Hash::make('password123'),
-                'created_at' => '2021/01/01 11:11:11'
+                'owner_id' => 1,
+                'filename' => 'sample5.jpg',
+                'title' => null
             ],
             [
-                'name' => 'test6',
-                'email' => 'test6@test.com',
-                'password' => Hash::make('password123'),
-                'created_at' => '2021/01/01 11:11:11'
-            ],
+                'owner_id' => 1,
+                'filename' => 'sample6.jpg',
+                'title' => null
+            ]
         ]);
     }
 }
