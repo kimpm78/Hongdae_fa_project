@@ -16,47 +16,47 @@ class CategorySeeder extends Seeder
     {
         DB::table('primary_categories')->insert([
             [
-                'name' => 'キッズファッション',
+                'name' => 'メンズ',
                 'sort_order' => 1,
             ],
             [
-                'name' => '出産祝い・ギフト',
+                'name' => 'レディース',
                 'sort_order' => 2,
             ],
             [
-                'name' => 'ベビーカー',
+                'name' => 'キッズ',
                 'sort_order' => 3,
             ],
         ]);
 
         DB::table('secondary_categories')->insert([
             [
-                'name' => '靴',
+                'name' => 'トップス',
                 'sort_order' => 1,
                 'primary_category_id' => 1
             ],
             [
-                'name' => 'トップス',
+                'name' => 'アウター',
                 'sort_order' => 2,
                 'primary_category_id' => 1
             ],
             [
-                'name' => 'バッグ・ランドセル',
+                'name' => 'パンツ',
                 'sort_order' => 3,
                 'primary_category_id' => 1
             ],
             [
-                'name' => 'ギフトセット',
+                'name' => 'ワンピース',
                 'sort_order' => 4,
                 'primary_category_id' => 2
             ],
             [
-                'name' => 'メモリアル・記念品',
+                'name' => 'スニーカー',
                 'sort_order' => 5,
                 'primary_category_id' => 2
             ],
             [
-                'name' => 'おむつケーキ',
+                'name' => 'スカート',
                 'sort_order' => 6,
                 'primary_category_id' => 2
             ],

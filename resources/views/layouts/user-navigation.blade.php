@@ -14,16 +14,11 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-<<<<<<< HEAD
                     <x-nav-link :href="route('user.items.index')" :active="request()->routeIs('user.items.index')">
-                        {{ __('ホーム') }}
+                        Home
                     </x-nav-link>
                     <x-nav-link :href="route('user.cart.index')" :active="request()->routeIs('user.cart.index')">
                         カートを表示
-=======
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        Dashboard
->>>>>>> main
                     </x-nav-link>
                 </div>
             </div>
@@ -50,11 +45,7 @@
 
                             <x-dropdown-link :href="route('user.logout')" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-<<<<<<< HEAD
                                 {{ __('Log out') }}
-=======
-                                ログアウト
->>>>>>> main
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -76,16 +67,11 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-<<<<<<< HEAD
             <x-responsive-nav-link :href="route('user.items.index')" :active="request()->routeIs('user.items.index')">
                 {{ __('ホーム') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('user.cart.index')" :active="request()->routeIs('user.cart.index')">
                 カートを表示
-=======
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                Dashboard
->>>>>>> main
             </x-responsive-nav-link>
         </div>
 
@@ -111,11 +97,7 @@
 
                     <x-responsive-nav-link :href="route('user.logout')" onclick="event.preventDefault();
                                         this.closest('form').submit();">
-<<<<<<< HEAD
-                        {{ __('Log out') }}
-=======
                         ログアウト
->>>>>>> main
                     </x-responsive-nav-link>
                 </form>
             </div>

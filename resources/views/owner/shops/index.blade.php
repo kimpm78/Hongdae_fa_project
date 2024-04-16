@@ -23,7 +23,6 @@
                                 </div>
                                 <div class="text-xl">{{ $shop->name }}</div>
                                 <x-thumbnail :filename="$shop->filename" type="shops" />
-
                             </div>
                         </a>
                     </div>

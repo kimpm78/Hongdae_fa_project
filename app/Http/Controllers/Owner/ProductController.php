@@ -13,6 +13,9 @@ use App\Models\Shop;
 use App\Models\PrimaryCategory;
 use App\Models\Owner;
 use App\Http\Requests\ProductRequest;
+use Throwable;
+use Illuminate\Support\Facades\Log;
+use App\Constants\Common;
 
 class ProductController extends Controller
 {
@@ -41,6 +44,9 @@ class ProductController extends Controller
 
         $ownerInfo = Owner::with('shop.product.imageFirst')
             ->where('id', Auth::id())->get();
+
+        // $ownerInfo = Owner::with('shop.product.imageFirst')
+        //     ->where('id', Auth::id())->get();
 
         // dd($ownerInfo);
         // foreach($ownerInfo as $owner){
@@ -108,7 +114,7 @@ class ProductController extends Controller
 
                 Stock::create([
                     'product_id' => $product->id,
-                    'type' => 1,
+                    'type' => '1',
                     'quantity' => $request->quantity
                 ]);
             }, 2);
@@ -166,6 +172,9 @@ class ProductController extends Controller
             ->sum('quantity');
 
         if ($request->current_quantity !== $quantity) {
+
+
+
             $id = $request->route()->parameter('product');
             return redirect()->route('owner.products.edit', ['product' => $id])
                 ->with([
@@ -190,10 +199,10 @@ class ProductController extends Controller
                     $product->is_selling = $request->is_selling;
                     $product->save();
 
-                    if ($request->type === \Constant::PRODUCT_LIST['add']) {
+                    if ($request->type === Common::PRODUCT_LIST['add']) {
                         $newQuantity = $request->quantity;
                     }
-                    if ($request->type === \Constant::PRODUCT_LIST['reduce']) {
+                    if ($request->type === Common::PRODUCT_LIST['reduce']) {
                         $newQuantity = $request->quantity * -1;
                     }
                     Stock::create([

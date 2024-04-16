@@ -378,87 +378,96 @@
     @include('components.header')
     <div>
         @include('components.slider')
-        <section class="text-gray-600 body-font">
+        <section class="text-gray-600 body-font text-2xl">
+            <div class="px-24 font-bold">人気商品</div>
             <div class="container px-5 py-24 mx-auto">
                 <div class="flex flex-wrap -m-4">
                     <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
                         <a class="block relative h-48 rounded overflow-hidden">
-                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/420x260">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://image.msscdn.net/images/goods_img/20210906/2111323/2111323_3_500.jpg">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-gray-900 title-font text-lg font-medium">The Catalyzer</h2>
-                            <p class="mt-1">$16.00</p>
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">DIAFVINE</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">DV.LOT 647 C/N Regular Robe -Ash Brown-</h2>
+                            <span class="mt-1 weight:400 pr-1 text-base">¥26,000</span>
                         </div>
                     </div>
                     <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
                         <a class="block relative h-48 rounded overflow-hidden">
-                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/421x261">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://image.msscdn.net/images/goods_img/20210812/2061549/2061549_2_500.jpg">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-gray-900 title-font text-lg font-medium">Shooting Stars</h2>
-                            <p class="mt-1">$21.15</p>
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CONTROBANAL3</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">Pompeii Varsity Sweatshirt-Sweat Man [Violet]</h2>
+                            <span class="mt-1 weight:400 pr-1 text-base">¥8,519</span>
                         </div>
                     </div>
                     <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
                         <a class="block relative h-48 rounded overflow-hidden">
-                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/422x262">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://image.msscdn.net/images/goods_img/20210405/1880828/1880828_2_500.jpg">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-gray-900 title-font text-lg font-medium">Neptune</h2>
-                            <p class="mt-1">$12.00</p>
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">DIAFVINE</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">DV.LOT 633 Cotton Shirts -BLACK-</h2>
+                            <span class="mt-1 weight:400 pr-1 text-base">¥16,808</span>
                         </div>
                     </div>
                     <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
                         <a class="block relative h-48 rounded overflow-hidden">
-                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/423x263">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://image.msscdn.net/images/goods_img/20220210/2352512/2352512_2_500.jpg">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-gray-900 title-font text-lg font-medium">The 400 Blows</h2>
-                            <p class="mt-1">$18.40</p>
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">AGINGCCC</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">[Bad World Story] Supercar Man to Man Navy</h2>
+                            <span class="mt-1 weight:400 pr-1 line-through text-base">¥7,748</span>
+                            <span class="text-red-600 inline-block text-base">¥3,874</span>
+                            <span class="inline-block text-base"> | 50% Off</span>
                         </div>
                     </div>
                     <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
                         <a class="block relative h-48 rounded overflow-hidden">
-                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/424x264">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://image.msscdn.net/images/goods_img/20220210/2352511/2352511_1_500.jpg">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-gray-900 title-font text-lg font-medium">The Catalyzer</h2>
-                            <p class="mt-1">$16.00</p>
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">AGINGCCC</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">[Bad World Story] Supercar Man to Man Gray</h2>
+                            <span class="mt-1 weight:400 pr-1 line-through text-base">¥7,748</span>
+                            <span class="text-red-600 inline-block text-base">¥3,874</span>
+                            <span class="inline-block text-base"> | 50% Off</span>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                        <ul>
+                            <li>
+                                <a class="block relative h-48 rounded overflow-hidden">
+                                    <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://image.msscdn.net/images/goods_img/20211116/2234305/2234305_2_500.jpg">
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="mt-4">
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">AWESOME STUDIO</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">1988 Man to Man Melange Gray</h2>
+                            <span class="mt-1 weight:400 pr-1 text-base">¥6,435</span>
                         </div>
                     </div>
                     <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
                         <a class="block relative h-48 rounded overflow-hidden">
-                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/425x265">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://image.msscdn.net/images/goods_img/20200818/1552714/1552714_1_500.jpg">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-gray-900 title-font text-lg font-medium">Shooting Stars</h2>
-                            <p class="mt-1">$21.15</p>
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">NOIAGO</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">NOI117 V Neck Overfit Logo Man to Man (Navy)</h2>
+                            <span class="mt-1 weight:400 pr-1 text-base">¥7,485</span>
                         </div>
                     </div>
                     <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
                         <a class="block relative h-48 rounded overflow-hidden">
-                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/427x267">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://image.msscdn.net/images/goods_img/20240328/3999346/3999346_17125623579795_500.jpg">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-gray-900 title-font text-lg font-medium">Neptune</h2>
-                            <p class="mt-1">$12.00</p>
-                        </div>
-                    </div>
-                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-                        <a class="block relative h-48 rounded overflow-hidden">
-                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/428x268">
-                        </a>
-                        <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-gray-900 title-font text-lg font-medium">The 400 Blows</h2>
-                            <p class="mt-1">$18.40</p>
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">BITTERCELLS</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">Ochard Mansion T-White</h2>
+                            <span class="mt-1 weight:400 pr-1 line-through text-base">¥6,128</span>
                         </div>
                     </div>
                 </div>

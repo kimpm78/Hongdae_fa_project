@@ -1,6 +1,6 @@
 <x-guest-layout>
     <x-auth-card>
-        <div class="mb-6 text-md font-bold  text-gray-600 text-center">ユーザー用</div>
+        <div class="mb-6 text-md font-bold  text-gray-600 text-center">管理者ー用</div>
         <x-slot name="logo">
             <a href="/">
                 <x-application-logo class="h-20 fill-current text-gray-500" />
