@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Constants\Common;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cart;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Services\CartService;
 use App\Jobs\SendThanksMail;
 use App\Jobs\SendOrderedMail;
+use GrahamCampbell\ResultType\Success;
 
 class CartController extends Controller
 {
@@ -62,59 +64,58 @@ class CartController extends Controller
 
     public function checkout()
     {
-
-
         $user = User::findOrFail(Auth::id());
         $products = $user->products;
 
         $lineItems = [];
         foreach ($products as $product) {
             $quantity = '';
-            $quantity = Stock::where('product_id', $product->id)->sum('quantity');
+            $quantity = Stock::where('product_id', $product->id)
+                ->sum('quantity');
 
             if ($product->pivot->quantity > $quantity) {
                 return redirect()->route('user.cart.index');
             } else {
-                $lineItem = [
-                    'name' => $product->name,
-                    'description' => $product->information,
-                    'amount' => $product->price,
+                $price_data = ([
+                    'unit_amount' => $product->price,
                     'currency' => 'jpy',
+                    'product_data' => $product_data = ([
+                        'name' => $product->name,
+                        'description' => $product->information,
+                    ]),
+                ]);
+
+                $lineItem = [
+                    'price_data' => $price_data,
                     'quantity' => $product->pivot->quantity,
                 ];
                 array_push($lineItems, $lineItem);
             }
         }
-        // dd($lineItems);
+
         foreach ($products as $product) {
             Stock::create([
                 'product_id' => $product->id,
-                'type' => \Constant::PRODUCT_LIST['reduce'],
+                'type' => Common::PRODUCT_LIST['reduce'],
                 'quantity' => $product->pivot->quantity * -1
             ]);
         }
-
         \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
-
         $session = \Stripe\Checkout\Session::create([
             'payment_method_types' => ['card'],
             'line_items' => [$lineItems],
             'mode' => 'payment',
-            'success_url' => route('user.cart.success'),
+            'success_url' => route('user.items.index'),
             'cancel_url' => route('user.cart.cancel'),
         ]);
 
         $publicKey = env('STRIPE_PUBLIC_KEY');
 
-        return view(
-            'user.checkout',
-            compact('session', 'publicKey')
-        );
+        return view('user.checkout', compact('session', 'publicKey'));
     }
 
     public function success()
     {
-        ////
         $items = Cart::where('user_id', Auth::id())->get();
         $products = CartService::getItemsInCart($items);
         $user = User::findOrFail(Auth::id());
@@ -124,7 +125,6 @@ class CartController extends Controller
             SendOrderedMail::dispatch($product, $user);
         }
         // dd('ユーザーメール送信テスト');
-        ////
         Cart::where('user_id', Auth::id())->delete();
 
         return redirect()->route('user.items.index');
@@ -137,7 +137,7 @@ class CartController extends Controller
         foreach ($user->products as $product) {
             Stock::create([
                 'product_id' => $product->id,
-                'type' => \Constant::PRODUCT_LIST['add'],
+                'type' => Common::PRODUCT_LIST['add'],
                 'quantity' => $product->pivot->quantity
             ]);
         }

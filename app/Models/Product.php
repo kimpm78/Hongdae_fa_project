@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Constants\Common;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Shop;
@@ -102,19 +103,19 @@ class Product extends Model
 
     public function scopeSortOrder($query, $sortOrder)
     {
-        if ($sortOrder === null || $sortOrder === \Constant::SORT_ORDER['recommend']) {
+        if ($sortOrder === null || $sortOrder === Common::SORT_ORDER['recommend']) {
             return $query->orderBy('sort_order', 'asc');
         }
-        if ($sortOrder === \Constant::SORT_ORDER['higherPrice']) {
+        if ($sortOrder === Common::SORT_ORDER['higherPrice']) {
             return $query->orderBy('price', 'desc');
         }
-        if ($sortOrder === \Constant::SORT_ORDER['lowerPrice']) {
+        if ($sortOrder === Common::SORT_ORDER['lowerPrice']) {
             return $query->orderBy('price', 'asc');
         }
-        if ($sortOrder === \Constant::SORT_ORDER['later']) {
+        if ($sortOrder === Common::SORT_ORDER['later']) {
             return $query->orderBy('products.created_at', 'desc');
         }
-        if ($sortOrder === \Constant::SORT_ORDER['older']) {
+        if ($sortOrder === Common::SORT_ORDER['older']) {
             return $query->orderBy('products.created_at', 'asc');
         }
     }
