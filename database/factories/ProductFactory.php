@@ -22,7 +22,7 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
+            'name' => $this->faker->words(2, true),
             'information' => $this->faker->realText,
             'price' => $this->faker->numberBetween(10, 100000),
             'is_selling' => $this->faker->numberBetween(0, 1),
@@ -33,7 +33,11 @@ class ProductFactory extends Factory
             'image2' => $this->faker->numberBetween(1, 6),
             'image3' => $this->faker->numberBetween(1, 6),
             'image4' => $this->faker->numberBetween(1, 6),
-
+            'image5' => $this->faker->numberBetween(1, 6),
+            'image6' => $this->faker->numberBetween(1, 6),
+            'image7' => $this->faker->numberBetween(1, 6),
+            'image8' => $this->faker->numberBetween(1, 6),
+            'image9' => $this->faker->numberBetween(1, 6),
         ];
     }
 }

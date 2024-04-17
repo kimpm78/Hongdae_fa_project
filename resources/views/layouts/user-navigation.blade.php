@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <div class="w-12">
+                    <div class="w-1/4">
                         <a href="{{ route('user.items.index') }}">
                             <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                         </a>
@@ -17,17 +17,8 @@
                     <x-nav-link :href="route('user.items.index')" :active="request()->routeIs('user.items.index')">
                         Home
                     </x-nav-link>
-                    <x-nav-link :href="route('user.items.index')" :active="request()->routeIs('user.cart.index')">
-                        MEN
-                    </x-nav-link>
-                    <x-nav-link :href="route('user.items.index')" :active="request()->routeIs('user.cart.index')">
-                        WOMEN
-                    </x-nav-link>
-                    <x-nav-link :href="route('user.items.index')" :active="request()->routeIs('user.cart.index')">
-                        KID・BABY
-                    </x-nav-link>
                     <!-- Cart Link -->
-                    <x-nav-link :href="route('user.cart.index')" :active="request()->routeIs('user.cart.index')">
+                    <x-nav-link class="ml-4" :href="route('user.cart.index')" :active="request()->routeIs('user.cart.index')">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
                         </svg>
@@ -41,7 +32,6 @@
                     <x-slot name="trigger">
                         <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
                             <div>{{ Auth::user()->name }}</div>
-
                             <div class="ml-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -54,11 +44,11 @@
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('user.logout') }}">
                             @csrf
-
                             <x-dropdown-link :href="route('user.logout')" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log out') }}
+                                ログアウト
                             </x-dropdown-link>
+
                         </form>
                     </x-slot>
                 </x-dropdown>

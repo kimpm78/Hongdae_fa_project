@@ -109,6 +109,11 @@ class ProductController extends Controller
                     'image2' => $request->image2,
                     'image3' => $request->image3,
                     'image4' => $request->image4,
+                    'image5' => $request->image5,
+                    'image6' => $request->image6,
+                    'image7' => $request->image7,
+                    'image8' => $request->image8,
+                    'image9' => $request->image9,
                     'is_selling' => $request->is_selling
                 ]);
 
@@ -196,6 +201,11 @@ class ProductController extends Controller
                     $product->image2 = $request->image2;
                     $product->image3 = $request->image3;
                     $product->image4 = $request->image4;
+                    $product->image4 = $request->image5;
+                    $product->image4 = $request->image6;
+                    $product->image4 = $request->image7;
+                    $product->image4 = $request->image8;
+                    $product->image4 = $request->image9;
                     $product->is_selling = $request->is_selling;
                     $product->save();
 

@@ -116,6 +116,11 @@ class ImageController extends Controller
             ->orWhere('image2', $image->id)
             ->orWhere('image3', $image->id)
             ->orWhere('image4', $image->id)
+            ->orWhere('image5', $image->id)
+            ->orWhere('image6', $image->id)
+            ->orWhere('image7', $image->id)
+            ->orWhere('image8', $image->id)
+            ->orWhere('image9', $image->id)
             ->get();
 
         if ($imageInProducts) {
@@ -134,6 +139,26 @@ class ImageController extends Controller
                 }
                 if ($product->image4 === $image->id) {
                     $product->image4 = null;
+                    $product->save();
+                }
+                if ($product->image5 === $image->id) {
+                    $product->image5 = null;
+                    $product->save();
+                }
+                if ($product->image6 === $image->id) {
+                    $product->image6 = null;
+                    $product->save();
+                }
+                if ($product->image7 === $image->id) {
+                    $product->image7 = null;
+                    $product->save();
+                }
+                if ($product->image8 === $image->id) {
+                    $product->image8 = null;
+                    $product->save();
+                }
+                if ($product->image9 === $image->id) {
+                    $product->image9 = null;
                     $product->save();
                 }
             });

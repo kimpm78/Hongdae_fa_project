@@ -46,6 +46,26 @@ class CategorySeeder extends Seeder
                 'primary_category_id' => 1
             ],
             [
+                'name' => 'スニーカー',
+                'sort_order' => 4,
+                'primary_category_id' => 1
+            ],
+            [
+                'name' => 'トップス',
+                'sort_order' => 1,
+                'primary_category_id' => 2
+            ],
+            [
+                'name' => 'アウター',
+                'sort_order' => 2,
+                'primary_category_id' => 2
+            ],
+            [
+                'name' => 'パンツ',
+                'sort_order' => 3,
+                'primary_category_id' => 2
+            ],
+            [
                 'name' => 'ワンピース',
                 'sort_order' => 4,
                 'primary_category_id' => 2
@@ -59,6 +79,26 @@ class CategorySeeder extends Seeder
                 'name' => 'スカート',
                 'sort_order' => 6,
                 'primary_category_id' => 2
+            ],
+            [
+                'name' => 'トップス',
+                'sort_order' => 1,
+                'primary_category_id' => 3
+            ],
+            [
+                'name' => 'アウター',
+                'sort_order' => 2,
+                'primary_category_id' => 3
+            ],
+            [
+                'name' => 'パンツ',
+                'sort_order' => 3,
+                'primary_category_id' => 3
+            ],
+            [
+                'name' => 'スニーカー',
+                'sort_order' => 4,
+                'primary_category_id' => 3
             ],
         ]);
     }

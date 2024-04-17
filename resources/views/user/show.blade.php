@@ -4,7 +4,6 @@
             商品の詳細
         </h2>
     </x-slot>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -18,28 +17,28 @@
                                     <!-- Slides -->
                                     <div class="swiper-slide">
                                         @if ($product->imageFirst->filename !== null)
-                                        <img src="{{ asset('storage/products/' . $product->imageFirst->filename )}}">
+                                        <img class="block max-w-full max-h-full object-contain" src="{{ asset('storage/products/' . $product->imageFirst->filename )}}">
                                         @else
                                         <img src="">
                                         @endif
                                     </div>
                                     <div class="swiper-slide">
                                         @if ($product->imageSecond->filename !== null)
-                                        <img src="{{ asset('storage/products/' . $product->imageSecond->filename )}}">
+                                        <img class="block max-w-full max-h-full object-contain" src="{{ asset('storage/products/' . $product->imageSecond->filename )}}">
                                         @else
                                         <img src="">
                                         @endif
                                     </div>
                                     <div class="swiper-slide">
                                         @if ($product->imageThird->filename !== null)
-                                        <img src="{{ asset('storage/products/' . $product->imageThird->filename )}}">
+                                        <img class="block max-w-full max-h-full object-contain" src="{{ asset('storage/products/' . $product->imageThird->filename )}}">
                                         @else
                                         <img src="">
                                         @endif
                                     </div>
                                     <div class="swiper-slide">
                                         @if ($product->imageFourth->filename !== null)
-                                        <img src="{{ asset('storage/products/' . $product->imageFourth->filename )}}">
+                                        <img class="block max-w-full max-h-full object-contain" src="{{ asset('storage/products/' . $product->imageFourth->filename )}}">
                                         @else
                                         <img src="">
                                         @endif
@@ -121,6 +120,7 @@
             </div>
         </div>
     </div>
+    @include('components.footer')
 
     <script src="{{ mix('js/swiper.js')}}"></script>
 </x-app-layout>

@@ -12,16 +12,16 @@
                     <label class="title-font text-gray-900 tracking-widest text-xl font-bold mb-3 py-4">カテゴリー</label>
                     <nav class="list-none mb-10">
                         <li>
-                            <a href="/" class="text-gray-600 hover:text-orange-400">会社情報</a>
+                            <a href="#" class="text-gray-600 hover:text-orange-400">会社情報</a>
                         </li>
                         <li>
-                            <a class="text-gray-600 hover:text-orange-400">返金・交換について</a>
+                            <a href="#" class="text-gray-600 hover:text-orange-400">返金・交換について</a>
                         </li>
                         <li>
-                            <a class="text-gray-600 hover:text-orange-400">お問い合わせ</a>
+                            <a href="#" class="text-gray-600 hover:text-orange-400">お問い合わせ</a>
                         </li>
                         <li>
-                            <a class="text-gray-600 hover:text-orange-400">利用規約</a>
+                            <a href="#" class="text-gray-600 hover:text-orange-400">利用規約</a>
                         </li>
                     </nav>
                 </div>

@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Auth;
 use App\Services\CartService;
 use App\Jobs\SendThanksMail;
 use App\Jobs\SendOrderedMail;
-use GrahamCampbell\ResultType\Success;
 
 class CartController extends Controller
 {
@@ -67,6 +66,8 @@ class CartController extends Controller
         $user = User::findOrFail(Auth::id());
         $products = $user->products;
 
+        SendThanksMail::dispatch($products, $user);
+
         $lineItems = [];
         foreach ($products as $product) {
             $quantity = '';
@@ -105,7 +106,7 @@ class CartController extends Controller
             'payment_method_types' => ['card'],
             'line_items' => [$lineItems],
             'mode' => 'payment',
-            'success_url' => route('user.items.index'),
+            'success_url' => route('user.cart.success'),
             'cancel_url' => route('user.cart.cancel'),
         ]);
 
