@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\ItemController;
 use App\Http\Controllers\User\CartController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes

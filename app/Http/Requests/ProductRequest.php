@@ -35,6 +35,11 @@ class ProductRequest extends FormRequest
             'image2' => 'nullable|exists:images,id',
             'image3' => 'nullable|exists:images,id',
             'image4' => 'nullable|exists:images,id',
+            'image5' => 'nullable|exists:images,id',
+            'image6' => 'nullable|exists:images,id',
+            'image7' => 'nullable|exists:images,id',
+            'image8' => 'nullable|exists:images,id',
+            'image9' => 'nullable|exists:images,id',
             'is_selling' => 'required|boolean'
         ];
     }

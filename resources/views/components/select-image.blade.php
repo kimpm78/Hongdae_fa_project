@@ -4,6 +4,10 @@ if($name === 'image2'){ $modal = 'modal-2' ;}
 if($name === 'image3'){ $modal = 'modal-3' ;}
 if($name === 'image4'){ $modal = 'modal-4' ;}
 if($name === 'image5'){ $modal = 'modal-5' ;}
+if($name === 'image6'){ $modal = 'modal-6' ;}
+if($name === 'image7'){ $modal = 'modal-7' ;}
+if($name === 'image8'){ $modal = 'modal-8' ;}
+if($name === 'image9'){ $modal = 'modal-9' ;}
 $cImage = $currentImage ?? '' ;
 $cId = $currentId ?? '' ;
 @endphp

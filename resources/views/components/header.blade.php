@@ -5,7 +5,7 @@
                 <img class="flex h-10" src="{{ asset("images/Hongdae_logo.png")}}" alt="Hongdae logo">
             </a>
             <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center">
-                <a href="#man" class="mr-5 hover:text-gray-900">MAN</a>
+                <a href="{{ route('user.men') }}" class="mr-5 hover:text-gray-900">MAN</a>
                 <a href="#women" class="mr-5 hover:text-gray-900">WOMEN</a>
                 <a href="#kb" class="mr-5 hover:text-gray-900">KIDS・BABY</a>
             </nav>

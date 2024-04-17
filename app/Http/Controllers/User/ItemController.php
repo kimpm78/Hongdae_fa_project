@@ -35,8 +35,8 @@ class ItemController extends Controller
     {
         // dd($request);
 
-        // 同期的に送信
-        // Mail::to('kimsoosang12@gmail.com')
+        // 同期的に送信(テスト用)
+        // Mail::to('test@example.com')
         //     ->send(new TestMail());
 
         // 非同期に送信
