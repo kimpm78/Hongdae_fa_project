@@ -33,8 +33,8 @@ Route::prefix('cart')->middleware('auth:users')->group(function () {
     Route::get('cancel', [CartController::class, 'cancel'])->name('cart.cancel');
 });
 
-Route::get('/dashboard', function () {
-    return view('user.dashboard');
-})->middleware(['auth:users'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('user.dashboard');
+// })->middleware(['auth:users'])->name('dashboard');
 
 require __DIR__ . '/auth.php';

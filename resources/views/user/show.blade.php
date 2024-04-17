@@ -82,6 +82,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="border-t border-gray-400 my-8"></div>
                     <div class="mb-4 text-center">この商品を販売しているショップ</div>
                     <div class="mb-4 text-center">{{ $product->shop->name }}</div>
